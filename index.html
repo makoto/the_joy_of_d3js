@@ -5,7 +5,8 @@
   <body>
     <script type="text/javascript">
       var width = 500,
-         height = 400
+         height = 400,
+         interval = 200
 
       var svg = d3.select("body").append("svg")
          .attr({
@@ -85,7 +86,7 @@
           var groupEnter = group.enter().append('g')
             .attr('class', 'group')
 
-          var groupUpdate = group.transition().duration(2000)
+          var groupUpdate = group.transition().duration(interval).ease('linear')
 
           var groupExit = d3.transition(group.exit())
             .remove()
@@ -126,11 +127,11 @@
         i = setInterval(
           function(){
             chart(years.filter(function(y){ return y.year == counter}))
-            counter+=10
+            counter+=1
             if (counter > 2000) {
               clearInterval(i)
             };
-           }, 1000
+           }, interval
         )
       })
 
