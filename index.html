@@ -6,11 +6,14 @@
     <script type="text/javascript">
       var width = 500,
          height = 400,
-         data = [
+         data1 = [
           {id:1,x:163,y:10},
           {id:2,x:326,y:140},
-          {id:3,x:490,y:270}
-         ]
+         ],
+         data2 = [
+           {id:2,x:400,y:340},
+           {id:3,x:290,y:280}
+         ];
 
       var svg = d3.select("body").append("svg")
          .attr({
@@ -19,17 +22,25 @@
            height:height
           })
 
-      var circle = svg.selectAll("circle")
-          .data(data);
+      var chart = function(data){
+        var circle = svg.selectAll("circle")
+            .data(data, function(d){return d.id})
 
-      circle.enter().append("circle")
-        .attr("cx", function(d){return d.x})
-        .attr("cy", function(d){return d.y})
-        .attr("r", 5)
-      .transition().duration(1000)
-        .attr("cx", function(d){return d.x + 10})
-        .attr("cy", function(d){return d.y + 10})
+        circle.enter().append("circle")
+          .attr("cx", function(d){return d.x})
+          .attr("cy", function(d){return d.y})
+          .attr("r", 0)
 
+        circle.transition().duration(2000)
+          .attr("cx", function(d){return d.x})
+          .attr("cy", function(d){return d.y})
+          .attr("r", 5)
+
+        circle.exit()
+          .remove()
+      }
+      chart(data1)
+      // chart(data2)
     </script>
   </body>
 </html>
