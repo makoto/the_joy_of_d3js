@@ -21,6 +21,8 @@
            width:width, 
            height:height
           })
+          .append("g")
+            .attr("transform", "translate(50,50)");
 
       var color = d3.scale.category10()
       var radius = d3.scale.linear().domain([10000,30000]).range([10,30])
@@ -32,7 +34,44 @@
         .domain([0,200])
         .range([0, width - 100])
 
+      var xAxis = d3.svg.axis()
+        .scale(x)
+        .orient("top")
+        .tickSize(1)
 
+      var yAxis = d3.svg.axis()
+        .scale(y)
+        .orient("left")
+        .tickSize(1)
+
+      svg.append("g")
+        .attr("class", "x axis");
+
+      d3.select(".x.axis")
+        .call(xAxis);
+
+      svg.append("text")
+          .attr("class", "x label")
+          .attr("text-anchor", "end")
+          .attr("y", -40)
+          .attr("x", width / 2)
+          .attr("dy", ".75em")
+          .text("income per capita");
+
+      svg.append("g")
+        .attr("class", "y axis");
+
+      d3.select(".y.axis")
+        .call(yAxis);
+
+      svg.append("text")
+          .attr("class", "y label")
+          .attr("text-anchor", "end")
+          .attr("y", -45)
+          .attr("x", -120)
+          .attr("dy", ".75em")
+          .attr("transform", "rotate(-90)")
+          .text("life expectancy (years)");
 
 
       var chart = function(data){
