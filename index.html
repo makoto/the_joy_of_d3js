@@ -7,10 +7,10 @@
       var width = 500,
          height = 400,
          years = [
-          {year:1950, id:1, region:'africa', population:10000,lifeExpectancy:30,income:2000},
-          {year:1950, id:2, region:'asia',   population:20000,lifeExpectancy:20,income:1400},
-          {year:2000, id:2, region:'asia',   population:30000,lifeExpectancy:50,income:14000},
-          {year:2000, id:3, region:'europe', population:15000,lifeExpectancy:60,income:16000}
+          {year:1950, country:'Bechuanaland', region:'africa', population:10000,lifeExpectancy:30,income:2000},
+          {year:1950, country:'Japan', region:'asia',   population:20000,lifeExpectancy:20,income:1400},
+          {year:2000, country:'Japan', region:'asia',   population:30000,lifeExpectancy:50,income:14000},
+          {year:2000, country:'United Kingdom', region:'europe', population:15000,lifeExpectancy:60,income:16000}
          ];
 
       var svg = d3.select("body").append("svg")
@@ -79,13 +79,14 @@
 
       var chart = function(data){
         var circle = svg.selectAll("circle")
-            .data(data, function(d){return d.id})
+            .data(data, function(d){return d.country})
 
         circle.enter().append("circle")
           .attr("cx", function(d){return x(d.income)})
           .attr("cy", function(d){return y(d.lifeExpectancy)})
           .attr("r", 0)
-          .style("fill", function(d){return color(d.id)})
+          .style("fill", function(d){return color(d.country)})
+          .on('click', function(d){return console.log(d.country)})
 
         circle.transition().duration(2000)
           .attr("cx", function(d){return x(d.income)})
