@@ -1,0 +1,13 @@
+year,country,region,income,population,lifeExpectancy
+1950,United Kingdom,Europe & Central Asia,9766.5,50127000,68.7
+1950,Japan,East Asia & Pacific,2644.59,83805000,59.3
+1960,United Kingdom,Europe & Central Asia,12167.33,52372000,71.1
+1960,Japan,East Asia & Pacific,5488.81,94091638,67.8
+1970,United Kingdom,Europe & Central Asia,15154.18,55632000,72
+1970,Japan,East Asia & Pacific,13374.86,104344973,72.07
+1980,United Kingdom,Europe & Central Asia,18199.83,56314000,73.72
+1980,Japan,East Asia & Pacific,18488.26,116807309,76.19
+1990,United Kingdom,Europe & Central Asia,23123.53,57493307,75.89
+1990,Japan,East Asia & Pacific,25870.14,123537399,79.04
+2000,United Kingdom,Europe & Central Asia,28644.71,59522468,78.04
+2000,Japan,East Asia & Pacific,28559.6,126699784,81.35
