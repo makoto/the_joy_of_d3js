@@ -6,13 +6,11 @@
     <script type="text/javascript">
       var width = 500,
          height = 400,
-         year1 = [
-          {id:1, region:'africa', population:10000,lifeExpectancy:163,income:10},
-          {id:2, region:'asia',   population:20000,lifeExpectancy:326,income:140},
-         ],
-         year2 = [
-           {id:2,region:'asia', population:30000,lifeExpectancy:400,income:140},
-           {id:3,region:'europe', population:15000,lifeExpectancy:290,income:160}
+         years = [
+          {year:1950, id:1, region:'africa', population:10000,lifeExpectancy:30,income:2000},
+          {year:1950, id:2, region:'asia',   population:20000,lifeExpectancy:20,income:1400},
+          {year:2000, id:2, region:'asia',   population:30000,lifeExpectancy:50,income:14000},
+          {year:2000, id:3, region:'europe', population:15000,lifeExpectancy:60,income:16000}
          ];
 
       var svg = d3.select("body").append("svg")
@@ -25,14 +23,19 @@
             .attr("transform", "translate(50,50)");
 
       var color = d3.scale.category10()
-      var radius = d3.scale.linear().domain([10000,30000]).range([10,30])
+      var radius = d3.scale.linear()
+            .domain(
+              [0, d3.max(years, function(d){ return d.population})]
+            ).range([10,30])
       var x = d3.scale.linear()
-          .domain([0, 400])
-          .range([0, width - 100]);
+            .domain(
+              [0, d3.max(years, function(d){ return d.income})]
+            ).range([0, width - 100]);
 
       var y = d3.scale.linear()
-        .domain([0,200])
-        .range([0, width - 100])
+            .domain(
+              d3.extent(years, function(d){ return d.lifeExpectancy})
+            ).range([height - 100, 20]);
 
       var xAxis = d3.svg.axis()
         .scale(x)
@@ -79,21 +82,22 @@
             .data(data, function(d){return d.id})
 
         circle.enter().append("circle")
-          .attr("cx", function(d){return x(d.lifeExpectancy)})
-          .attr("cy", function(d){return y(d.income)})
+          .attr("cx", function(d){return x(d.income)})
+          .attr("cy", function(d){return y(d.lifeExpectancy)})
           .attr("r", 0)
           .style("fill", function(d){return color(d.id)})
 
         circle.transition().duration(2000)
-          .attr("cx", function(d){return x(d.lifeExpectancy)})
-          .attr("cy", function(d){return y(d.income)})
+          .attr("cx", function(d){return x(d.income)})
+          .attr("cy", function(d){return y(d.lifeExpectancy)})
           .attr("r",  function(d){return radius(d.population)})
 
         circle.exit()
           .remove()
       }
-      chart(year1)
-      // chart(year2)
+
+      chart(years.filter(function(y){ return y.year == 1950}))
+      // chart(years.filter(function(y){ return y.year == 2000}))
     </script>
   </body>
 </html>
