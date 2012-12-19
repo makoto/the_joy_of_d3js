@@ -76,25 +76,48 @@
           .attr("transform", "rotate(-90)")
           .text("life expectancy (years)");
 
-
       var chart = function(data){
-        var circle = svg.selectAll("circle")
-            .data(data, function(d){return d.country})
+        var group = svg.selectAll(".group")
+            .data(data, function(d){return d.country});
 
-        circle.enter().append("circle")
+        var groupEnter = group.enter().append('g')
+          .attr('class', 'group')
+
+        var groupUpdate = group.transition().duration(2000)
+
+        var groupExit = d3.transition(group.exit())
+          .remove()
+
+        groupEnter.append("circle")
           .attr("cx", function(d){return x(d.income)})
           .attr("cy", function(d){return y(d.lifeExpectancy)})
-          .attr("r", 0)
+          .attr("r", 2)
           .style("fill", function(d){return color(d.country)})
-          .on('click', function(d){return console.log(d.country)})
+          .on('mouseover', function(d){
+            d3.select(this.parentElement).select('text').style('opacity', 1)
+          })
+          .on('mouseout', function(d){
+            d3.select(this.parentElement).select('text').style('opacity', 0)
+          })
 
-        circle.transition().duration(2000)
+        groupEnter.append('text')
+          .attr("x", function(d){return x(d.income)})
+          .attr("y", function(d){return y(d.lifeExpectancy)})
+          .attr("dx", -3)
+          .attr("dy", ".35em")
+          .attr("text-anchor", "end")
+          .text(function(d){return d.country})
+          .style('opacity', 0)
+
+        groupUpdate.select('circle')
           .attr("cx", function(d){return x(d.income)})
           .attr("cy", function(d){return y(d.lifeExpectancy)})
           .attr("r",  function(d){return radius(d.population)})
 
-        circle.exit()
-          .remove()
+        groupUpdate.select('text')
+          .attr("x", function(d){return x(d.income)})
+          .attr("y", function(d){return y(d.lifeExpectancy)})
+
       }
 
       chart(years.filter(function(y){ return y.year == 1950}))
