@@ -146,6 +146,12 @@
 
         }
 
+        var countryLatLon = function(country){
+          return countries.filter(function(f){
+            return f.country == country
+          })
+        }
+
         map = function(){
           d3.select("g").selectAll("path")
               .data(boundaries.features)
@@ -153,6 +159,22 @@
               .attr({
                 "d":projection(geopath)
               });
+
+          var circle = svg.selectAll("circle")
+          circle.transition().duration(1000)
+            .attr({
+              r:function(d){
+                return radius(d.population)
+              },
+              cx:function(d){
+                matched = countryLatLon(d.country)[0]
+                return geopath([matched.lon, matched.lat])[0]
+              },
+              cy: function(d){
+                matched = countryLatLon(d.country)[0]
+                return geopath([matched.lon, matched.lat])[1]
+              }
+            })
         }
         counter = 1995
         i = 0
