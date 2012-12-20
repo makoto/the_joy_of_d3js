@@ -175,6 +175,10 @@
                 return geopath([matched.lon, matched.lat])[1]
               }
             })
+            .style('opacity', 0.5)
+            .call(function(d){
+              this.parentNode.parentNode.appendChild(this);
+            })
         }
         counter = 1995
         i = 0
