@@ -2,6 +2,9 @@
 
 ## Introduction
 
+### Inspiration
+
+- http://youtu.be/jbkSRLYSojo
 - http://www.gapminder.org/data/
 - http://bost.ocks.org/mike/nations/
 
@@ -62,3 +65,17 @@ NOTE: v3 only
 NOTE: 
 - change "year.csv" to "years2.csv"
 - show http://localhost:3005/index.htm
+
+
+## End
+
+### Online resources
+
+http://d3js.org
+https://github.com/mbostock/d3/wiki/Gallery
+http://bost.ocks.org/mike/
+
+### Online videos
+
+http://enjalot.github.com/dot-enter/
+http://enjalot.github.com/dot-append
