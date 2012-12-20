@@ -1,7 +1,7 @@
 <html>
   <head>
     <script type="text/javascript" src="./d3.v3.min.js"></script>
-    <script type="text/javascript" src="./d3.v3.min.js"></script>
+    <script type="text/javascript" src="./queue.min.js"></script>
   </head>
   <body>
     <div class="year">
@@ -28,7 +28,13 @@
 
       var color = d3.scale.category10()
       
-      d3.csv('years.csv', function(years){
+      queue()
+        .defer(d3.csv, "years.csv")
+        .defer(d3.csv, "countries.csv")
+        .defer(d3.json, "boundaries.json")
+        .await(ready);
+
+      function ready(error, years, boundaries, countries) {
         years = years.map(function(d){
           d.income = parseInt(d.income)
           d.lifeExpectancy = parseInt(d.lifeExpectancy)
@@ -136,19 +142,16 @@
         }
         counter = 1942
         i = 0
-        // i = setInterval(
-        //   function(){
-        //     chart(years.filter(function(y){ return y.year == counter}))
-        //     counter+=1
-        //     if (counter > 2000) {
-        //       clearInterval(i)
-        //     };
-        //    }, interval
-        // )
-        for (var i=counter; i < 2000; i++) {
-          chart(years.filter(function(y){ return y.year == i}))
-        };
-      })
+        i = setInterval(
+          function(){
+            chart(years.filter(function(y){ return y.year == counter}))
+            counter+=1
+            if (counter > 2000) {
+              clearInterval(i)
+            };
+           }, interval
+        )
+      }
 
     </script>
   </body>
