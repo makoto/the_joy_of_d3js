@@ -1,8 +1,17 @@
 <html>
   <head>
     <script type="text/javascript" src="./d3.v3.min.js"></script>
+    <script type="text/javascript" src="./d3.v3.min.js"></script>
   </head>
   <body>
+    <div class="year">
+    </div>
+    <style type="text/css" media="screen">
+      .year{
+        font-size: 70px;
+        color: grey;
+      }
+    </style>
     <script type="text/javascript">
       var width = 500,
          height = 400,
@@ -28,8 +37,8 @@
         })
         var radius = d3.scale.linear()
               .domain(
-                [0, d3.max(years, function(d){ return d.population})]
-              ).range([10,30])
+                d3.extent(years, function(d){ return d.population})
+              ).range([5,30])
          x = d3.scale.linear()
               .domain(
                 [0, d3.max(years, function(d){ return d.income})]
@@ -80,6 +89,9 @@
             .text("life expectancy (years)");
 
         var chart = function(data){
+          var yearDiv = d3.select(".year")
+          yearDiv.html(data[0].year)
+
           var group = svg.selectAll(".group")
               .data(data, function(d){return d.country});
 
@@ -122,17 +134,20 @@
             .attr("y", function(d){return y(d.lifeExpectancy)})
 
         }
-        counter = 1950
+        counter = 1942
         i = 0
-        i = setInterval(
-          function(){
-            chart(years.filter(function(y){ return y.year == counter}))
-            counter+=1
-            if (counter > 2000) {
-              clearInterval(i)
-            };
-           }, interval
-        )
+        // i = setInterval(
+        //   function(){
+        //     chart(years.filter(function(y){ return y.year == counter}))
+        //     counter+=1
+        //     if (counter > 2000) {
+        //       clearInterval(i)
+        //     };
+        //    }, interval
+        // )
+        for (var i=counter; i < 2000; i++) {
+          chart(years.filter(function(y){ return y.year == i}))
+        };
       })
 
     </script>
