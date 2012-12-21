@@ -175,10 +175,6 @@
                 return geopath([matched.lon, matched.lat])[1]
               }
             })
-            .style('opacity', 0.5)
-            .call(function(d){
-              this.parentNode.parentNode.appendChild(this);
-            })
         }
         counter = 1943
         i = 0
@@ -186,7 +182,7 @@
           function(){
             chart(years.filter(function(y){ return y.year == counter}).reverse())
             counter+=1
-            if (counter > 2000) {
+            if (counter > 2009) {
               clearInterval(i)
             };
            }, interval
