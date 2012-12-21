@@ -184,7 +184,7 @@
         i = 0
         i = setInterval(
           function(){
-            chart(years.filter(function(y){ return y.year == counter}))
+            chart(years.filter(function(y){ return y.year == counter}).reverse())
             counter+=1
             if (counter > 2000) {
               clearInterval(i)
