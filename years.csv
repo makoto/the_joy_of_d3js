@@ -217,5 +217,5 @@ year,country,region,income,population,lifeExpectancy
 2007,Japan,East Asia & Pacific,31636.71,127467972,82.87
 2008,United Kingdom,Europe & Central Asia,32875.34,60943912,79.5
 2008,Japan,East Asia & Pacific,31275.13,127425722,82.81
-2009,United Kingdom,Europe & Central Asia,31042.47,,79.64
-2009,Japan,East Asia & Pacific,29680.68,,82.98
+2009,United Kingdom,Europe & Central Asia,31042.47,60943912,79.64
+2009,Japan,East Asia & Pacific,29680.68,127425722,82.98
