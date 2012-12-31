@@ -6,6 +6,7 @@
   <body>
     <div class="year">
     </div>
+    <button onclick="map()">Map</button>
     <style type="text/css" media="screen">
       .year{
         font-size: 70px;
@@ -27,14 +28,19 @@
             .attr("transform", "translate(50,50)");
 
       var color = d3.scale.category10()
-      
+      var projection = d3.geo.mercator()
+        .scale(400)
+        .translate([190,200])
+
+      var geopath = d3.geo.path().projection(projection)
+
       queue()
         .defer(d3.csv, "years.csv")
         .defer(d3.csv, "countries.csv")
         .defer(d3.json, "boundaries.json")
         .await(ready);
 
-      function ready(error, years, boundaries, countries) {
+      function ready(error, years, countries, boundaries) {
         years = years.map(function(d){
           d.income = parseInt(d.income)
           d.lifeExpectancy = parseInt(d.lifeExpectancy)
@@ -140,7 +146,17 @@
             .attr("y", function(d){return y(d.lifeExpectancy)})
 
         }
-        counter = 1942
+
+        map = function(){
+           d3.select("g").selectAll("path")
+               .data(boundaries.features)
+             .enter().append("path")
+               .attr({
+                 "d":geopath
+               });
+         }
+
+        counter = 1995
         i = 0
         i = setInterval(
           function(){
