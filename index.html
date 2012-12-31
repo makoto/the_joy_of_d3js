@@ -36,11 +36,10 @@
 
       queue()
         .defer(d3.csv, "years.csv")
-        .defer(d3.csv, "countries.csv")
         .defer(d3.json, "boundaries.json")
         .await(ready);
 
-      function ready(error, years, countries, boundaries) {
+      function ready(error, years, boundaries) {
         years = years.map(function(d){
           d.income = parseInt(d.income)
           d.lifeExpectancy = parseInt(d.lifeExpectancy)
@@ -147,10 +146,11 @@
 
         }
 
-        var countryLatLon = function(country){
-         return countries.filter(function(f){
-           return f.country == country
-         })
+        getCentroid = function(country){
+         var feature = boundaries.features.filter(function(f){
+           return f.properties.name == country
+         })[0]
+         return geopath.centroid(feature)
         }
 
         map = function(){
@@ -169,12 +169,10 @@
                   return radius(d.population)
                 },
                 cx:function(d){
-                  matched = countryLatLon(d.country)[0]
-                  return projection([matched.lon, matched.lat])[0]
+                  return getCentroid(d.country)[0]
                 },
                 cy: function(d){
-                  matched = countryLatLon(d.country)[0]
-                  return projection([matched.lon, matched.lat])[1]
+                  return getCentroid(d.country)[1]
                 }
               })
         }
