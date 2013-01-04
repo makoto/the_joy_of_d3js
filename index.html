@@ -28,18 +28,18 @@
             .attr("transform", "translate(50,50)");
 
       var color = d3.scale.category10()
-      var projection = d3.geo.path().projection
-      var geopath = d3.geo.mercator()
+      var projection = d3.geo.mercator()
         .scale(400)
         .translate([190,200])
 
+      var geopath = d3.geo.path().projection(projection)
+
       queue()
         .defer(d3.csv, "years.csv")
-        .defer(d3.csv, "countries.csv")
         .defer(d3.json, "boundaries.json")
         .await(ready);
 
-      function ready(error, years, countries, boundaries) {
+      function ready(error, years, boundaries) {
         years = years.map(function(d){
           d.income = parseInt(d.income)
           d.lifeExpectancy = parseInt(d.lifeExpectancy)
@@ -146,37 +146,40 @@
 
         }
 
-        var countryLatLon = function(country){
-          return countries.filter(function(f){
-            return f.country == country
-          })
+
+        getCentroid = function(country){
+         var feature = boundaries.features.filter(function(f){
+           return f.properties.name == country
+         })[0]
+         return geopath.centroid(feature)
         }
 
         map = function(){
-          d3.select("g").selectAll("path")
-              .data(boundaries.features)
-            .enter().append("path")
-              .attr({
-                "d":projection(geopath)
-              });
+           d3.select("g").selectAll("path")
+               .data(boundaries.features)
+             .enter().append("path")
+               .attr({
+                 "d":geopath
+               });
 
           var circle = svg.selectAll("circle")
+
           circle.transition().duration(1000)
-            .attr({
-              r:function(d){
-                return radius(d.population)
-              },
-              cx:function(d){
-                matched = countryLatLon(d.country)[0]
-                return geopath([matched.lon, matched.lat])[0]
-              },
-              cy: function(d){
-                matched = countryLatLon(d.country)[0]
-                return geopath([matched.lon, matched.lat])[1]
-              }
-            })
+              .attr({
+                r:function(d){
+                  return radius(d.population)
+                },
+                cx:function(d){
+                  return getCentroid(d.country)[0]
+                },
+                cy: function(d){
+                  return getCentroid(d.country)[1]
+                }
+              })
         }
+
         counter = 1943
+
         i = 0
         i = setInterval(
           function(){
