@@ -1,0 +1,6 @@
+[
+{"year":1950,"country":"Bechuanaland","region":"africa","population":10000,"lifeExpectancy":30,"income":2000},
+{"year":1950,"country":"Japan","region":"asia","population":20000,"lifeExpectancy":20,"income":1400},
+{"year":2000,"country":"Japan","region":"asia","population":30000,"lifeExpectancy":50,"income":14000},
+{"year":2000,"country":"United Kingdom","region":"europe","population":15000,"lifeExpectancy":60,"income":16000}
+]

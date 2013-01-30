@@ -1,0 +1,198 @@
+<html>
+  <head>
+    <script type="text/javascript" src="./d3.v3.min.js"></script>
+    <script type="text/javascript" src="./queue.min.js"></script>
+  </head>
+  <body>
+    <div class="year">
+    </div>
+    <button onclick="map()">Map</button>
+    <style type="text/css" media="screen">
+      .year{
+        font-size: 70px;
+        color: grey;
+      }
+    </style>
+    <script type="text/javascript">
+      var width = 500,
+         height = 400,
+         interval = 200
+
+      var svg = d3.select("body").append("svg")
+         .attr({
+           class:"svg", 
+           width:width, 
+           height:height
+          })
+          .append("g")
+            .attr("transform", "translate(50,50)");
+
+      var color = d3.scale.category10()
+      var projection = d3.geo.mercator()
+        .scale(400)
+        .translate([190,200])
+
+      var geopath = d3.geo.path().projection(projection)
+
+      queue()
+        .defer(d3.csv, "years.csv")
+        .defer(d3.json, "boundaries.json")
+        .await(ready);
+
+      function ready(error, years, boundaries) {
+        years = years.map(function(d){
+          d.income = parseInt(d.income)
+          d.lifeExpectancy = parseInt(d.lifeExpectancy)
+          d.population = parseInt(d.population)
+          return d
+        })
+        var radius = d3.scale.linear()
+              .domain(
+                d3.extent(years, function(d){ return d.population})
+              ).range([5,30])
+         x = d3.scale.linear()
+              .domain(
+                [0, d3.max(years, function(d){ return d.income})]
+              ).range([0, width - 100]);
+
+        var y = d3.scale.linear()
+              .domain(
+                d3.extent(years, function(d){ return d.lifeExpectancy})
+              ).range([height - 100, 20]);
+
+        var xAxis = d3.svg.axis()
+          .scale(x)
+          .orient("top")
+          .tickSize(1)
+
+        var yAxis = d3.svg.axis()
+          .scale(y)
+          .orient("left")
+          .tickSize(1)
+
+        svg.append("g")
+          .attr("class", "x axis");
+
+        d3.select(".x.axis")
+          .call(xAxis);
+
+        svg.append("text")
+            .attr("class", "x label")
+            .attr("text-anchor", "end")
+            .attr("y", -40)
+            .attr("x", width / 2)
+            .attr("dy", ".75em")
+            .text("income per capita");
+
+        svg.append("g")
+          .attr("class", "y axis");
+
+        d3.select(".y.axis")
+          .call(yAxis);
+
+        svg.append("text")
+            .attr("class", "y label")
+            .attr("text-anchor", "end")
+            .attr("y", -45)
+            .attr("x", -120)
+            .attr("dy", ".75em")
+            .attr("transform", "rotate(-90)")
+            .text("life expectancy (years)");
+
+        var chart = function(data){
+          var yearDiv = d3.select(".year")
+          yearDiv.html(data[0].year)
+
+          var group = svg.selectAll(".group")
+              .data(data, function(d){return d.country});
+
+          var groupEnter = group.enter().append('g')
+            .attr('class', 'group')
+
+          var groupUpdate = group.transition().duration(interval).ease('linear')
+
+          var groupExit = d3.transition(group.exit())
+            .remove()
+
+          groupEnter.append("circle")
+            .attr("cx", function(d){return x(d.income)})
+            .attr("cy", function(d){return y(d.lifeExpectancy)})
+            .attr("r", 2)
+            .style("fill", function(d){return color(d.country)})
+            .on('mouseover', function(d){
+              d3.select(this.parentElement).select('text').style('opacity', 1)
+            })
+            .on('mouseout', function(d){
+              d3.select(this.parentElement).select('text').style('opacity', 0)
+            })
+
+          groupEnter.append('text')
+            .attr("x", function(d){return x(d.income)})
+            .attr("y", function(d){return y(d.lifeExpectancy)})
+            .attr("dx", -3)
+            .attr("dy", ".35em")
+            .attr("text-anchor", "end")
+            .text(function(d){return d.country})
+            .style('opacity', 0)
+
+          groupUpdate.select('circle')
+            .attr("cx", function(d){return x(d.income)})
+            .attr("cy", function(d){return y(d.lifeExpectancy)})
+            .attr("r",  function(d){return radius(d.population)})
+
+          groupUpdate.select('text')
+            .attr("x", function(d){return x(d.income)})
+            .attr("y", function(d){return y(d.lifeExpectancy)})
+
+        }
+
+
+        getCentroid = function(country){
+         var feature = boundaries.features.filter(function(f){
+           return f.properties.name == country
+         })[0]
+         return geopath.centroid(feature)
+        }
+
+        map = function(){
+           d3.select("g").selectAll("path")
+               .data(boundaries.features)
+             .enter().append("path")
+               .attr({
+                 "d":geopath
+               });
+
+          var circle = svg.selectAll("circle")
+
+          circle.transition().duration(1000)
+              .attr({
+                r:function(d){
+                  return radius(d.population)
+                },
+                cx:function(d){
+                  return getCentroid(d.country)[0]
+                },
+                cy: function(d){
+                  return getCentroid(d.country)[1]
+                }
+              })
+        }
+
+        counter = 1943
+
+        i = 0
+        i = setInterval(
+          function(){
+            chart(years.filter(function(y){ return y.year == counter}).reverse())
+            counter+=1
+            if (counter > 2009) {
+              clearInterval(i)
+            };
+           }, interval
+        )
+
+      }
+
+    </script>
+  </body>
+</html>

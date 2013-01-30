@@ -1,0 +1,221 @@
+year,country,region,income,population,lifeExpectancy
+1900,United Kingdom,Europe & Central Asia,6321.8,37975154,46.32
+1900,Japan,East Asia & Pacific,1736.39,44103000,38.6
+1901,United Kingdom,Europe & Central Asia,6263.51,38373808,47.91
+1901,Japan,East Asia & Pacific,1772.67,44662000,
+1902,United Kingdom,Europe & Central Asia,6368.9,38737346,49.08
+1902,Japan,East Asia & Pacific,1655.54,45255000,
+1903,United Kingdom,Europe & Central Asia,6248.33,39102443,50.43
+1903,Japan,East Asia & Pacific,1745.65,45841000,
+1904,United Kingdom,Europe & Central Asia,6231.91,39474558,49.11
+1904,Japan,East Asia & Pacific,1735.69,46378000,
+1905,United Kingdom,Europe & Central Asia,6362.14,39850962,50.86
+1905,Japan,East Asia & Pacific,1686.69,46829000,39.22
+1906,United Kingdom,Europe & Central Asia,6517.81,40231673,50.58
+1906,Japan,East Asia & Pacific,1887.88,47227000,
+1907,United Kingdom,Europe & Central Asia,6584.65,40614789,51.44
+1907,Japan,East Asia & Pacific,1924.86,47691000,
+1908,United Kingdom,Europe & Central Asia,6261.81,41003923,51.84
+1908,Japan,East Asia & Pacific,1911.45,48260000,
+1909,United Kingdom,Europe & Central Asia,6348.13,41398500,52.52
+1909,Japan,East Asia & Pacific,1881.91,48869000,
+1910,United Kingdom,Europe & Central Asia,6489.23,41795923,53.99
+1910,Japan,East Asia & Pacific,1882.95,49518000,39.97
+1911,United Kingdom,Europe & Central Asia,6627.33,42150769,51.54
+1911,Japan,East Asia & Pacific,1954.06,50215000,
+1912,United Kingdom,Europe & Central Asia,6701.7,42318019,54.55
+1912,Japan,East Asia & Pacific,1991.34,50941000,
+1913,United Kingdom,Europe & Central Asia,6925.2,42556673,53.83
+1913,Japan,East Asia & Pacific,1991.28,51672000,
+1914,United Kingdom,Europe & Central Asia,6933.69,42965211,51.99
+1914,Japan,East Asia & Pacific,1901.22,52396000,
+1915,United Kingdom,Europe & Central Asia,7442.73,43296057,48.2
+1915,Japan,East Asia & Pacific,2045.23,53124000,40.9
+1916,United Kingdom,Europe & Central Asia,7578,43473615,47.73
+1916,Japan,East Asia & Pacific,2326.89,53815000,
+1917,United Kingdom,Europe & Central Asia,7629.56,43573615,45.57
+1917,Japan,East Asia & Pacific,2372.82,54437000,
+1918,United Kingdom,Europe & Central Asia,7683.46,43529634,40.43
+1918,Japan,East Asia & Pacific,2373.05,54886000,
+1919,United Kingdom,Europe & Central Asia,6854.63,43437404,54.12
+1919,Japan,East Asia & Pacific,2593.96,55253000,
+1920,United Kingdom,Europe & Central Asia,6400.75,43718000,56.6
+1920,Japan,East Asia & Pacific,2402.74,55818000,42.04
+1921,United Kingdom,Europe & Central Asia,6247.68,44072000,58.35
+1921,Japan,East Asia & Pacific,2629.72,56490000,
+1922,United Kingdom,Europe & Central Asia,6526.04,44372000,57.13
+1922,Japan,East Asia & Pacific,2584.64,57209000,42.62
+1923,United Kingdom,Europe & Central Asia,6698.84,44596000,59.4
+1923,Japan,East Asia & Pacific,2549.04,57937000,
+1924,United Kingdom,Europe & Central Asia,6925.75,44915000,58.17
+1924,Japan,East Asia & Pacific,2582.09,58686000,
+1925,United Kingdom,Europe & Central Asia,7240.38,45059000,58.51
+1925,Japan,East Asia & Pacific,2645.71,59522000,
+1926,United Kingdom,Europe & Central Asia,6947.11,45232000,59.66
+1926,Japan,East Asia & Pacific,2621.63,60490000,
+1927,United Kingdom,Europe & Central Asia,7480.27,45389000,59.04
+1927,Japan,East Asia & Pacific,2614.09,61430000,45.66
+1928,United Kingdom,Europe & Central Asia,7539.42,45578000,59.99
+1928,Japan,East Asia & Pacific,2780.19,62361000,
+1929,United Kingdom,Europe & Central Asia,7745.39,45672000,57.71
+1929,Japan,East Asia & Pacific,2821.34,63244000,
+1930,United Kingdom,Europe & Central Asia,7657.49,45866000,60.89
+1930,Japan,East Asia & Pacific,2572.21,64203000,
+1931,United Kingdom,Europe & Central Asia,7231.83,46074000,60.11
+1931,Japan,East Asia & Pacific,2549.2,65205000,
+1932,United Kingdom,Europe & Central Asia,7245.67,46335000,60.63
+1932,Japan,East Asia & Pacific,2716.38,66189000,
+1933,United Kingdom,Europe & Central Asia,7427.52,46520000,60.67
+1933,Japan,East Asia & Pacific,2933.51,67182000,
+1934,United Kingdom,Europe & Central Asia,7892.03,46666000,61.4
+1934,Japan,East Asia & Pacific,2894.67,68090000,
+1935,United Kingdom,Europe & Central Asia,8161.54,46868000,62.05
+1935,Japan,East Asia & Pacific,2919.61,69238000,48.24
+1936,United Kingdom,Europe & Central Asia,8493.92,47081000,61.85
+1936,Japan,East Asia & Pacific,3090.28,70171000,
+1937,United Kingdom,Europe & Central Asia,8750.7,47289000,61.88
+1937,Japan,East Asia & Pacific,3187.62,71278000,49
+1938,United Kingdom,Europe & Central Asia,8819.43,47494000,63.3
+1938,Japan,East Asia & Pacific,3372.34,71879000,
+1939,United Kingdom,Europe & Central Asia,8813.73,47991000,63.69
+1939,Japan,East Asia & Pacific,3877.35,72364000,
+1940,United Kingdom,Europe & Central Asia,9649.17,48226000,60.97
+1940,Japan,East Asia & Pacific,3957.53,72967000,49
+1941,United Kingdom,Europe & Central Asia,10529.74,48216000,61.37
+1941,Japan,East Asia & Pacific,3955.34,74005000,
+1942,United Kingdom,Europe & Central Asia,10750.98,48400000,63.99
+1942,Japan,East Asia & Pacific,3880.32,75029000,48.5
+1943,United Kingdom,Europe & Central Asia,10898.52,48789000,64.01
+1943,Japan,East Asia & Pacific,3885.01,76005000,46
+1944,United Kingdom,Europe & Central Asia,10422.38,49016000,64.85
+1944,Japan,East Asia & Pacific,3661.06,77178000,40
+1945,United Kingdom,Europe & Central Asia,9930.83,49182000,65.85
+1945,Japan,East Asia & Pacific,1853.44,76224000,30.54
+1946,United Kingdom,Europe & Central Asia,9493.42,49217000,66.47
+1946,Japan,East Asia & Pacific,1988.5,77199000,46.5
+1947,United Kingdom,Europe & Central Asia,9295.07,49519000,66.44
+1947,Japan,East Asia & Pacific,2121.68,78119000,51.75
+1948,United Kingdom,Europe & Central Asia,9493.84,50014000,68.5
+1948,Japan,East Asia & Pacific,2375.5,80155000,56.89
+1949,United Kingdom,Europe & Central Asia,9789.47,50312000,68.19
+1949,Japan,East Asia & Pacific,2478.13,81971000,57.76
+1950,United Kingdom,Europe & Central Asia,9766.5,50127000,68.7
+1950,Japan,East Asia & Pacific,2644.59,83805000,59.3
+1951,United Kingdom,Europe & Central Asia,10025.45,50290000,68.3
+1951,Japan,East Asia & Pacific,2926.69,85163848,60.99
+1952,United Kingdom,Europe & Central Asia,9979.51,50430000,69.6
+1952,Japan,East Asia & Pacific,3216.96,86459025,63.03
+1953,United Kingdom,Europe & Central Asia,10338.51,50593000,69.87
+1953,Japan,East Asia & Pacific,3406.85,87655163,63.37
+1954,United Kingdom,Europe & Central Asia,10723.3,50765000,70.24
+1954,Japan,East Asia & Pacific,3554.9,88753892,64.61
+1955,United Kingdom,Europe & Central Asia,11073.65,50946000,70.21
+1955,Japan,East Asia & Pacific,3814.97,89815060,65.77
+1956,United Kingdom,Europe & Central Asia,11158.95,51184000,70.48
+1956,Japan,East Asia & Pacific,4058.84,90766211,65.63
+1957,United Kingdom,Europe & Central Asia,11283.18,51430000,70.6
+1957,Japan,East Asia & Pacific,4317.69,91563009,65.5
+1958,United Kingdom,Europe & Central Asia,11211.11,51652000,70.78
+1958,Japan,East Asia & Pacific,4528.39,92388772,67.12
+1959,United Kingdom,Europe & Central Asia,11596.73,51956000,70.88
+1959,Japan,East Asia & Pacific,4893.31,93296566,67.51
+1960,United Kingdom,Europe & Central Asia,12167.33,52372000,71.1
+1960,Japan,East Asia & Pacific,5488.81,94091638,67.8
+1961,United Kingdom,Europe & Central Asia,12464.91,52807000,70.85
+1961,Japan,East Asia & Pacific,6094.42,94943293,68.45
+1962,United Kingdom,Europe & Central Asia,12477.18,53292000,70.92
+1962,Japan,East Asia & Pacific,6576.65,95831757,68.73
+1963,United Kingdom,Europe & Central Asia,12876.6,53625000,70.83
+1963,Japan,East Asia & Pacific,7061.48,96811940,69.81
+1964,United Kingdom,Europe & Central Asia,13465.99,53991000,71.62
+1964,Japan,East Asia & Pacific,7803.68,97826267,70.28
+1965,United Kingdom,Europe & Central Asia,13724.35,54350000,71.61
+1965,Japan,East Asia & Pacific,8170.01,98882534,70.33
+1966,United Kingdom,Europe & Central Asia,13912.63,54643000,71.53
+1966,Japan,East Asia & Pacific,8957.28,99790308,71.14
+1967,United Kingdom,Europe & Central Asia,14142.85,54959000,72.16
+1967,Japan,East Asia & Pacific,9847.79,100825279,71.43
+1968,United Kingdom,Europe & Central Asia,14651.01,55214000,71.79
+1968,Japan,East Asia & Pacific,10992,101960672,71.75
+1969,United Kingdom,Europe & Central Asia,14850.49,55461000,71.75
+1969,Japan,East Asia & Pacific,12218.48,103171831,71.98
+1970,United Kingdom,Europe & Central Asia,15154.18,55632000,72
+1970,Japan,East Asia & Pacific,13374.86,104344973,72.07
+1971,United Kingdom,Europe & Central Asia,15399.08,55907000,72.32
+1971,Japan,East Asia & Pacific,13824.24,105696786,72.89
+1972,United Kingdom,Europe & Central Asia,15895.12,56079000,72.1
+1972,Japan,East Asia & Pacific,14778.79,107188273,73.42
+1973,United Kingdom,Europe & Central Asia,16924.43,56210000,72.31
+1973,Japan,East Asia & Pacific,15742.88,108706797,73.48
+1974,United Kingdom,Europe & Central Asia,16690.27,56224000,72.51
+1974,Japan,East Asia & Pacific,15344.57,110162302,73.91
+1975,United Kingdom,Europe & Central Asia,16673.64,56215000,72.78
+1975,Japan,East Asia & Pacific,15618.93,111573116,74.41
+1976,United Kingdom,Europe & Central Asia,17050.63,56206000,72.76
+1976,Japan,East Asia & Pacific,16066.67,112774841,74.81
+1977,United Kingdom,Europe & Central Asia,17428.75,56179000,73.25
+1977,Japan,East Asia & Pacific,16610.38,113872473,75.38
+1978,United Kingdom,Europe & Central Asia,18053.95,56167000,73.18
+1978,Japan,East Asia & Pacific,17327.76,114912911,75.7
+1979,United Kingdom,Europe & Central Asia,18531.69,56228000,73.29
+1979,Japan,East Asia & Pacific,18123.89,115890431,76.21
+1980,United Kingdom,Europe & Central Asia,18199.83,56314000,73.72
+1980,Japan,East Asia & Pacific,18488.26,116807309,76.19
+1981,United Kingdom,Europe & Central Asia,17940.78,56382597,74.06
+1981,Japan,East Asia & Pacific,18938.11,117648092,76.6
+1982,United Kingdom,Europe & Central Asia,18232.42,56339704,74.19
+1982,Japan,East Asia & Pacific,19384.11,118454974,77.11
+1983,United Kingdom,Europe & Central Asia,18865.5,56382623,74.44
+1983,Japan,East Asia & Pacific,19698.72,119269949,77.14
+1984,United Kingdom,Europe & Central Asia,19309.67,56462228,74.83
+1984,Japan,East Asia & Pacific,20339.95,120034697,77.54
+1985,United Kingdom,Europe & Central Asia,19935.24,56620240,74.68
+1985,Japan,East Asia & Pacific,21109.16,120754335,77.84
+1986,United Kingdom,Europe & Central Asia,20747.69,56796260,74.95
+1986,Japan,East Asia & Pacific,21588.49,121491913,78.26
+1987,United Kingdom,Europe & Central Asia,21664.79,56981620,75.3
+1987,Japan,East Asia & Pacific,22375.94,122091325,78.67
+1988,United Kingdom,Europe & Central Asia,22673.28,57159603,75.41
+1988,Japan,East Asia & Pacific,23661.04,122613000,78.58
+1989,United Kingdom,Europe & Central Asia,23100.74,57324472,75.55
+1989,Japan,East Asia & Pacific,24704.53,123107500,79.01
+1990,United Kingdom,Europe & Central Asia,23123.53,57493307,75.89
+1990,Japan,East Asia & Pacific,25870.14,123537399,79.04
+1991,United Kingdom,Europe & Central Asia,22739.73,57665646,76.06
+1991,Japan,East Asia & Pacific,26648.77,123946268,79.31
+1992,United Kingdom,Europe & Central Asia,22705.09,57866349,76.46
+1992,Japan,East Asia & Pacific,26824.9,124329269,79.36
+1993,United Kingdom,Europe & Central Asia,23170.28,58026920,76.32
+1993,Japan,East Asia & Pacific,26818.24,124668019,79.5
+1994,United Kingdom,Europe & Central Asia,24118.67,58212518,76.88
+1994,Japan,East Asia & Pacific,27037.83,125014050,79.91
+1995,United Kingdom,Europe & Central Asia,24716.01,58426014,76.78
+1995,Japan,East Asia & Pacific,27509.08,125341354,79.76
+1996,United Kingdom,Europe & Central Asia,25328.77,58618663,77.05
+1996,Japan,East Asia & Pacific,28385.16,125645311,80.46
+1997,United Kingdom,Europe & Central Asia,26074.53,58808266,77.31
+1997,Japan,East Asia & Pacific,28816.58,125956499,80.69
+1998,United Kingdom,Europe & Central Asia,26773.33,59035652,77.45
+1998,Japan,East Asia & Pacific,27904.68,126246096,80.77
+1999,United Kingdom,Europe & Central Asia,27467.51,59293320,77.56
+1999,Japan,East Asia & Pacific,27809.6,126494403,80.75
+2000,United Kingdom,Europe & Central Asia,28644.71,59522468,78.04
+2000,Japan,East Asia & Pacific,28559.6,126699784,81.35
+2001,United Kingdom,Europe & Central Asia,28978.41,59723243,78.31
+2001,Japan,East Asia & Pacific,28569.05,126891645,81.7
+2002,United Kingdom,Europe & Central Asia,29479,59912431,78.43
+2002,Japan,East Asia & Pacific,28604.59,127065841,82
+2003,United Kingdom,Europe & Central Asia,30204.15,60094648,78.52
+2003,Japan,East Asia & Pacific,29073.61,127214499,82.07
+2004,United Kingdom,Europe & Central Asia,31097.52,60270708,79.1
+2004,Japan,East Asia & Pacific,29742.05,127333002,82.36
+2005,United Kingdom,Europe & Central Asia,31580,60441457,79.3
+2005,Japan,East Asia & Pacific,30290,127417244,82.27
+2006,United Kingdom,Europe & Central Asia,32293.8,60609153,79.53
+2006,Japan,East Asia & Pacific,30909.15,127463611,82.68
+2007,United Kingdom,Europe & Central Asia,32909.5,60776238,79.34
+2007,Japan,East Asia & Pacific,31636.71,127467972,82.87
+2008,United Kingdom,Europe & Central Asia,32875.34,60943912,79.5
+2008,Japan,East Asia & Pacific,31275.13,127425722,82.81
+2009,United Kingdom,Europe & Central Asia,31042.47,60943912,79.64
+2009,Japan,East Asia & Pacific,29680.68,127425722,82.98
