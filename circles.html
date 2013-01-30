@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <script type="text/javascript" src="./d3.v3.min.js"></script>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var width = 500,
+         height = 400,
+         data = [
+          {id:1,x:163,y:10},
+          {id:2,x:326,y:140},
+          {id:3,x:490,y:270}
+         ]
+
+      var svg = d3.select("body").append("svg")
+         .attr({
+           class:"svg", 
+           width:width, 
+           height:height
+          })
+
+      var circle = svg.selectAll("circle")
+          .data(data);
+
+      circle.enter().append("circle")
+        .attr("cx", function(d){return d.x})
+        .attr("cy", function(d){return d.y})
+        .attr("r", 5)
+
+    </script>
+  </body>
+</html>

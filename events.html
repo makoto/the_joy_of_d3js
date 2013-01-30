@@ -1,0 +1,127 @@
+<html>
+  <head>
+    <script type="text/javascript" src="./d3.v3.min.js"></script>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var width = 500,
+         height = 400,
+         years = [
+          {year:1950, country:'Bechuanaland', region:'africa', population:10000,lifeExpectancy:30,income:2000},
+          {year:1950, country:'Japan', region:'asia',   population:20000,lifeExpectancy:20,income:1400},
+          {year:2000, country:'Japan', region:'asia',   population:30000,lifeExpectancy:50,income:14000},
+          {year:2000, country:'United Kingdom', region:'europe', population:15000,lifeExpectancy:60,income:16000}
+         ];
+
+      var svg = d3.select("body").append("svg")
+         .attr({
+           class:"svg", 
+           width:width, 
+           height:height
+          })
+          .append("g")
+            .attr("transform", "translate(50,50)");
+
+      var color = d3.scale.category10()
+      var radius = d3.scale.linear()
+            .domain(
+              [0, d3.max(years, function(d){ return d.population})]
+            ).range([10,30])
+      var x = d3.scale.linear()
+            .domain(
+              [0, d3.max(years, function(d){ return d.income})]
+            ).range([0, width - 100]);
+
+      var y = d3.scale.linear()
+            .domain(
+              d3.extent(years, function(d){ return d.lifeExpectancy})
+            ).range([height - 100, 20]);
+
+      var xAxis = d3.svg.axis()
+        .scale(x)
+        .orient("top")
+        .tickSize(1)
+
+      var yAxis = d3.svg.axis()
+        .scale(y)
+        .orient("left")
+        .tickSize(1)
+
+      svg.append("g")
+        .attr("class", "x axis");
+
+      d3.select(".x.axis")
+        .call(xAxis);
+
+      svg.append("text")
+          .attr("class", "x label")
+          .attr("text-anchor", "end")
+          .attr("y", -40)
+          .attr("x", width / 2)
+          .attr("dy", ".75em")
+          .text("income per capita");
+
+      svg.append("g")
+        .attr("class", "y axis");
+
+      d3.select(".y.axis")
+        .call(yAxis);
+
+      svg.append("text")
+          .attr("class", "y label")
+          .attr("text-anchor", "end")
+          .attr("y", -45)
+          .attr("x", -120)
+          .attr("dy", ".75em")
+          .attr("transform", "rotate(-90)")
+          .text("life expectancy (years)");
+
+      var chart = function(data){
+        var group = svg.selectAll(".group")
+            .data(data, function(d){return d.country});
+
+        var groupEnter = group.enter().append('g')
+          .attr('class', 'group')
+
+        var groupUpdate = group.transition().duration(2000)
+
+        var groupExit = d3.transition(group.exit())
+          .remove()
+
+        groupEnter.append("circle")
+          .attr("cx", function(d){return x(d.income)})
+          .attr("cy", function(d){return y(d.lifeExpectancy)})
+          .attr("r", 2)
+          .style("fill", function(d){return color(d.country)})
+          .on('mouseover', function(d){
+            d3.select(this.parentElement).select('text').style('opacity', 1)
+          })
+          .on('mouseout', function(d){
+            d3.select(this.parentElement).select('text').style('opacity', 0)
+          })
+
+        groupEnter.append('text')
+          .attr("x", function(d){return x(d.income)})
+          .attr("y", function(d){return y(d.lifeExpectancy)})
+          .attr("dx", -3)
+          .attr("dy", ".35em")
+          .attr("text-anchor", "end")
+          .text(function(d){return d.country})
+          .style('opacity', 0)
+
+        groupUpdate.select('circle')
+          .attr("cx", function(d){return x(d.income)})
+          .attr("cy", function(d){return y(d.lifeExpectancy)})
+          .attr("r",  function(d){return radius(d.population)})
+
+        groupUpdate.select('text')
+          .attr("x", function(d){return x(d.income)})
+          .attr("y", function(d){return y(d.lifeExpectancy)})
+
+      }
+
+      chart(years.filter(function(y){ return y.year == 1950}))
+      // chart(years.filter(function(y){ return y.year == 2000}))
+    </script>
+  </body>
+</html>

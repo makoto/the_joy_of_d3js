@@ -4,13 +4,58 @@
     <script type="text/javascript" src="./queue.min.js"></script>
   </head>
   <body>
+    <h1>The joy of stats</h1>
+    <div class="header-note">
+      <p>By <a href="http://twitter.com/makoto_inou">@makoto_inoue</a></p>
+      <p>More detail at <a href="https://github.com/makoto/the_joy_of_d3js/wiki">Wiki</a> and <a href="http://blog.new-bamboo.co.uk/2013/01/07/the-joy-of-d3js">New Bamboo Blog</a></p>
+      
+    </div>
+    <div class="clear">
+    </div>
+    <div class="chart">
+    </div>
     <div class="year">
     </div>
+    <div class="clear">
+    </div>
+
     <button onclick="map()">Map</button>
+    <div class="footer">
+      <a href="./circles.html">DrawingCircle</a> |
+      Debugging |
+      <a href="./transitions.html">BasicTransition</a> |
+      <a href="./scaling.html">Scaling</a> |
+      <a href="./events.html">Array, Group And Event</a> |
+      Loading Multiple Data files</a> |
+      Geo</a>
+    </div>
     <style type="text/css" media="screen">
       .year{
-        font-size: 70px;
+        font-size: 140px;
+        margin-top:200px;
         color: grey;
+      }
+      h1 {
+        float:left;
+        float:l;
+        font-size: 64px;
+        font-weight: 300;
+        letter-spacing: -2px;
+        margin: .3em 0 .1em 0;
+      }
+      .header-note {
+        float:left;
+        padding-top:12px;
+        padding-left:100px;
+      }
+      .chart{
+        float:left;
+      }
+      .clear{
+        clear:both;
+      }
+      .footer{
+        margin-top:10px;
       }
     </style>
     <script type="text/javascript">
@@ -18,7 +63,7 @@
          height = 400,
          interval = 200
 
-      var svg = d3.select("body").append("svg")
+      var svg = d3.select(".chart").append("svg")
          .attr({
            class:"svg", 
            width:width, 
